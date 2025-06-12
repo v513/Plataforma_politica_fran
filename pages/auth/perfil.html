@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Público</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 20px auto; padding: 20px; }
+        img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+        .profile-container { text-align: center; }
+        p { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Perfil Público</h2>
+        <img id="publicProfilePicture" src="/placeholder.jpg" alt="Foto de perfil">
+        <p id="publicDescription">Cargando descripción...</p>
+    </div>
+
+    <script>
+        // Cargar perfil público
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+    
+        if (userId) {
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const usuario = usuarios.find(u => u.id === userId);
+            
+            if (usuario) {
+                document.getElementById('publicProfilePicture').src = usuario.fotoPerfil || '/placeholder.jpg';
+                document.getElementById('publicDescription').textContent = usuario.descripcion || 'Sin descripción';
+            } else {
+                document.getElementById('publicDescription').textContent = 'Usuario no encontrado';
+            }
+        } else {
+            document.getElementById('publicDescription').textContent = 'ID de usuario no especificado';
+        }
+    </script>
+
+</body>
+</html>

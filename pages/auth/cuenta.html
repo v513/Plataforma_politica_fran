@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 20px auto; padding: 20px; }
+        img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+        input, textarea, button { width: 100%; padding: 8px; margin: 5px 0; box-sizing: border-box; }
+        textarea { height: 60px; }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Mi Perfil</h2>
+        <img id="profilePicture" src="/placeholder.jpg" alt="Foto de perfil">
+        
+        <form id="profileForm">
+            <input type="file" id="photoInput" accept="image/*">
+            <textarea id="description" placeholder="Descripción breve"></textarea>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { optimizarImagen } from '/scripts/auth/image-optimizer.js';
+    
+        // Cargar usuario actual
+        const usuarioActual = JSON.parse(sessionStorage.getItem('usuarioActual'));
+        if (!usuarioActual) {
+            alert("Debes iniciar sesión");
+            window.location.href = "/iniciar_session.html";
+        }
+    
+        // Mostrar datos
+        document.getElementById('description').value = usuarioActual.descripcion || '';
+        document.getElementById('profilePicture').src = usuarioActual.fotoPerfil || '/placeholder.jpg';
+    
+        // Manejar guardado
+        document.getElementById('profileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const descripcion = document.getElementById('description').value;
+            const archivoFoto = document.getElementById('photoInput').files[0];
+            
+            // Optimizar imagen si existe
+            if (archivoFoto) {
+                const blobOptimizado = await optimizarImagen(archivoFoto);
+                
+                // Convertir a Base64 para almacenamiento local
+                const reader = new FileReader();
+                reader.onload = () => {
+                    usuarioActual.fotoPerfil = reader.result;
+                    guardarCambios(usuarioActual, descripcion);
+                };
+                reader.readAsDataURL(blobOptimizado);
+            } else {
+                guardarCambios(usuarioActual, descripcion);
+            }
+        });
+    
+        function guardarCambios(usuario, descripcion) {
+            usuario.descripcion = descripcion;
+            
+            // Actualizar en el sistema de autenticación
+            authLocal.actualizarUsuario(usuario);
+            
+            // Actualizar sesión
+            sessionStorage.setItem('usuarioActual', JSON.stringify(usuario));
+            alert("Perfil actualizado correctamente");
+            
+            // Opcional: Redirigir al perfil público
+            window.location.href = `/perfil.html?id=${usuario.id}`;
+        }
+    </script>
+
+</body>
+</html>

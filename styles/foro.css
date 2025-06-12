@@ -1,0 +1,121 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c00; /* Fondo rojo fuerte */
+    color: #111;
+}
+
+/* Contenido centrado en fondo blanco */
+main {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+}
+
+/* Encabezado */
+header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #333;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 2px solid #8B0000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #8B0000;
+}
+
+/* Estilo de los posts */
+.post {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #8B0000;
+    border-radius: 4px;
+}
+
+/* Formulario de publicación */
+form input, form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+
+form input::placeholder, form textarea::placeholder {
+    color: #888;
+}
+
+button {
+    background-color: #8B0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a30000;
+}
+
+/* Pie de página */
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 15px;
+    color: white;
+    margin-top: 40px;
+}
+
+/* Adaptabilidad para pantallas pequeñas */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}

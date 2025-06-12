@@ -1,0 +1,136 @@
+/* Estilos para perfil de usuario */
+.profile-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #333;
+  }
+  
+  .profile-avatar-container {
+    position: relative;
+  }
+  
+  .profile-avatar-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #900;
+    object-fit: cover;
+  }
+  
+  .btn-change-avatar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .profile-info h2 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .profile-info p {
+    color: #ccc;
+    margin: 0.3rem 0;
+  }
+  
+  .profile-section {
+    background-color: #222;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid #900;
+  }
+  
+  .profile-section h3 {
+    color: #d00;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .account-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+  }
+  
+  .account-status.verified {
+    background-color: #003300;
+    color: #00cc00;
+  }
+  
+  .profile-description {
+    color: #ccc;
+    line-height: 1.5;
+  }
+  
+  .user-activity {
+    margin-top: 1.5rem;
+  }
+  
+  .activity-item {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #333;
+  }
+  
+  .activity-item h4 {
+    margin-top: 0;
+    color: #d00;
+  }
+  
+  .activity-item p {
+    color: #ccc;
+    font-style: italic;
+  }
+  
+  .activity-date {
+    display: block;
+    color: #999;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  
+  .btn-small {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .btn-small:hover {
+    background-color: #444;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }

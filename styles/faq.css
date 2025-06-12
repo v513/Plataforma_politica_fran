@@ -1,0 +1,277 @@
+/* Estilos específicos para el foro */
+.seccion-foro {
+    margin-top: 3rem;
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border: 1px solid #900;
+  }
+  
+  .descripcion-foro {
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #333;
+  }
+  
+  .controles-foro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .filtros {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .filtros select {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    border: 1px solid #555;
+  }
+  
+  #form-nueva-pregunta {
+    background-color: #222;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid #900;
+  }
+  
+  #form-nueva-pregunta label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    color: #ccc;
+  }
+  
+  #form-nueva-pregunta input,
+  #form-nueva-pregunta select,
+  #form-nueva-pregunta textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  #form-nueva-pregunta textarea {
+    min-height: 100px;
+  }
+  
+  .form-botones {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .btn-manodura {
+    background-color: #900;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-manodura:hover {
+    background-color: #b00;
+  }
+  
+  .btn-cancelar {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-cancelar:hover {
+    background-color: #444;
+  }
+  
+  /* Estilos para las preguntas del foro */
+  .preguntas-foro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .pregunta-foro {
+    background-color: #222;
+    border: 1px solid #333;
+    padding: 1.5rem;
+  }
+  
+  .pregunta-cabecera {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #333;
+  }
+  
+  .pregunta-estado {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 3px;
+  }
+  
+  .pregunta-estado.abierta {
+    background-color: #006600;
+    color: #fff;
+  }
+  
+  .pregunta-estado.cerrada {
+    background-color: #666;
+    color: #fff;
+  }
+  
+  .pregunta-categoria {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    background-color: #333;
+    border-radius: 3px;
+  }
+  
+  .pregunta-categoria.seguridad {
+    border-left: 3px solid #900;
+  }
+  
+  .pregunta-categoria.politica {
+    border-left: 3px solid #009;
+  }
+  
+  .pregunta-categoria.partido {
+    border-left: 3px solid #090;
+  }
+  
+  .pregunta-fecha {
+    color: #999;
+    font-size: 0.9rem;
+  }
+  
+  .pregunta-contenido {
+    margin-bottom: 1.5rem;
+  }
+  
+  .pregunta-autor {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 1rem;
+  }
+  
+  .pregunta-respuesta {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 3px solid #900;
+  }
+  
+  .respuesta-oficial strong {
+    color: #d00;
+  }
+  
+  .pregunta-acciones {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+  }
+  
+  .btn-reportar {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .btn-reportar:hover {
+    color: #d00;
+  }
+  
+  .moderacion-acciones {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .moderacion-acciones button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .btn-cerrar, .btn-reabrir {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  
+  .btn-eliminar {
+    background-color: #300;
+    color: #fff;
+    border: 1px solid #900;
+  }
+  
+  /* Modal de moderación */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  .modal-contenido {
+    background-color: #222;
+    margin: 10% auto;
+    padding: 2rem;
+    border: 1px solid #900;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .cerrar-modal {
+    color: #aaa;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .cerrar-modal:hover {
+    color: #fff;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pregunta-cabecera {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    
+    .controles-foro {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .modal-contenido {
+      width: 95%;
+      margin: 20% auto;
+    }
+  }

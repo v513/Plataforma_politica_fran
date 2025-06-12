@@ -1,0 +1,641 @@
+/* Estilos específicos para el foro */
+.foro-header {
+    background-color: #111;
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    border-bottom: 3px solid #8B0000;
+}
+
+.foro-header h1 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+}
+
+.foro-nav {
+    background-color: #222;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.foro-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.foro-nav ul li {
+    margin: 0 15px;
+}
+
+.foro-nav ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.foro-nav ul li a:hover, .foro-nav ul li a.active {
+    color: #8B0000;
+}
+
+.foro-main {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.foro-sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #ddd;
+}
+
+.foro-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.categorias h3, .format-help h3, .estadisticas h3 {
+    color: #8B0000;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hashtag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.hashtag:hover, .hashtag.active {
+    background-color: #8B0000;
+    color: white;
+}
+
+.estadisticas p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.format-help {
+    margin-top: 30px;
+}
+
+.format-examples {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.format-examples p {
+    margin: 8px 0;
+}
+
+.ver-mas {
+    display: inline-block;
+    margin-top: 10px;
+    color: #8B0000;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+/* Estilos para el contenido principal del foro */
+.foro-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.btn-nuevo-tema {
+    background-color: #8B0000;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-nuevo-tema:hover {
+    background-color: #a30000;
+}
+
+.search-box {
+    display: flex;
+}
+
+.search-box input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    width: 250px;
+}
+
+.search-box button {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Estilos para la lista de temas */
+.foro-temas {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tema-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+
+.tema-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.tema-item:hover {
+    background-color: #f9f9f9;
+}
+
+.tema-titulo h4 {
+    margin: 0 0 5px 0;
+}
+
+.tema-titulo h4 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.tema-titulo h4 a:hover {
+    color: #8B0000;
+    text-decoration: underline;
+}
+
+.tema-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.tag {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: white;
+}
+
+.tag-seguridad { background-color: #8B0000; }
+.tag-economia { background-color: #006400; }
+.tag-educacion { background-color: #00008B; }
+.tag-salud { background-color: #8B008B; }
+.tag-justicia { background-color: #556B2F; }
+.tag-corrupcion { background-color: #8B4513; }
+.tag-propuestas { background-color: #4682B4; }
+
+.tema-respuestas, .tema-visitas {
+    text-align: center;
+    align-self: center;
+}
+
+.tema-ultimo {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.tema-ultimo a {
+    color: #8B0000;
+    text-decoration: none;
+}
+
+.tema-ultimo a:hover {
+    text-decoration: underline;
+}
+
+.foro-paginacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.paginacion {
+    display: flex;
+    gap: 5px;
+}
+
+.paginacion a {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #333;
+}
+
+.paginacion a:hover, .paginacion a.active {
+    background-color: #8B0000;
+    color: white;
+    border-color: #8B0000;
+}
+
+/* Estilos para el detalle del tema */
+.tema-detalle .tema-header {
+    display: block;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border-left: 4px solid #8B0000;
+}
+
+.tema-detalle .tema-header h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.tema-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.tema-meta a {
+    color: #8B0000;
+    text-decoration: none;
+}
+
+.tema-meta a:hover {
+    text-decoration: underline;
+}
+
+.mensaje {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.mensaje.original {
+    border-left: 4px solid #8B0000;
+}
+
+.mensaje-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #8B0000;
+}
+
+.usuario-info h4 {
+    margin: 0;
+    color: #333;
+}
+
+.usuario-info span {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.mensaje-content {
+    padding: 15px;
+    line-height: 1.6;
+}
+
+.mensaje-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.mensaje-acciones {
+    display: flex;
+    gap: 15px;
+}
+
+.mensaje-acciones a {
+    color: #8B0000;
+    text-decoration: none;
+}
+
+.mensaje-acciones a:hover {
+    text-decoration: underline;
+}
+
+.responder-box {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.responder-box h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 5px;
+}
+
+.responder-box textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.format-toolbar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.format-toolbar button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.format-toolbar button:hover {
+    background-color: #8B0000;
+}
+
+.btn-enviar {
+    background-color: #8B0000;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-enviar:hover {
+    background-color: #a30000;
+}
+
+.nota {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Estilos para crear nuevo tema */
+.nuevo-tema h2 {
+    color: #333;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.tag-selector {
+    position: relative;
+}
+
+.tag-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.tag-option {
+    padding: 3px 8px;
+    background-color: #ddd;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-option:hover {
+    background-color: #8B0000;
+    color: white;
+}
+
+.selected-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.selected-tag {
+    padding: 3px 8px;
+    background-color: #8B0000;
+    color: white;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.selected-tag .remove-tag {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-publicar {
+    background-color: #8B0000;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-publicar:hover {
+    background-color: #a30000;
+}
+
+.btn-preview, .btn-cancelar {
+    background-color: #333;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-preview:hover, .btn-cancelar:hover {
+    background-color: #555;
+}
+
+.foro-footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    border-top: 3px solid #8B0000;
+}
+
+.foro-footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.foro-footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.foro-footer a:hover {
+    color: #8B0000;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #8B0000;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .foro-main {
+        flex-direction: column;
+    }
+    
+    .foro-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .foro-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .search-box input {
+        width: 100%;
+    }
+    
+    .tema-header, .tema-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .tema-respuestas, .tema-visitas, .tema-ultimo {
+        text-align: left;
+    }
+    
+    .foro-paginacion {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
