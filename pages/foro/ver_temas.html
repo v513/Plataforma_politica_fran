@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="shortcut icon" href="../../resources/icons/logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Tema - Mi Foro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .tema-principal {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tema-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .tema-titulo {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        .tema-meta {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .tema-contenido {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .respuestas-titulo {
+            font-size: 20px;
+            margin: 30px 0 15px 0;
+            color: #2c3e50;
+        }
+        .respuesta {
+            background-color: white;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .respuesta-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .respuesta-autor {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .respuesta-fecha {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .respuesta-contenido {
+            line-height: 1.5;
+        }
+        .formulario-respuesta {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        .form-grupo {
+            margin-bottom: 15px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .login-info {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .alerta {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Foro</h1>
+        <a href="../foro.html" class="btn">Volver al Foro</a>
+    </header>
+
+    <div class="login-info" id="loginInfo">
+        <a href="iniciar_sesion.html">Iniciar sesión</a> o 
+        <a href="registro.html">Registrarse</a>
+    </div>
+
+    <div id="temaPrincipal" class="tema-principal">
+        <!-- Aquí se cargará el tema dinámicamente -->
+        <div class="tema-header">
+            <h2 class="tema-titulo">Cargando tema...</h2>
+        </div>
+    </div>
+
+    <h3 class="respuestas-titulo">Respuestas</h3>
+    <div id="listaRespuestas">
+        <!-- Aquí se cargarán las respuestas dinámicamente -->
+    </div>
+
+    <div class="formulario-respuesta" id="formularioRespuesta">
+        <h3>Responder</h3>
+        <div id="alertaLogin" class="alerta" style="display: none;">
+            Debes iniciar sesión para responder a este tema.
+        </div>
+        <form id="formRespuesta">
+            <div class="form-grupo">
+                <label for="respuestaContenido" class="form-label">Tu respuesta:</label>
+                <textarea id="respuestaContenido" class="form-input" required></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar respuesta</button>
+        </form>
+    </div>
+
+    <script>
+        // Datos de ejemplo para simular un backend
+        let temas = [
+            {
+                id: 1,
+                titulo: "Bienvenidos al foro",
+                autor: "admin",
+                fecha: "2025-05-01",
+                categoria: "general",
+                contenido: "¡Bienvenidos a nuestro nuevo foro! Aquí podrán discutir sobre diversos temas. Esperamos que les sea útil y disfruten de las conversaciones. No olviden seguir las reglas de respeto y cordialidad."
+            },
+            {
+                id: 2,
+                titulo: "Novedades tecnológicas 2025",
+                autor: "techguru",
+                fecha: "2025-05-03",
+                categoria: "tecnologia",
+                contenido: "Vamos a hablar sobre las últimas novedades en tecnología este año. Desde inteligencia artificial hasta dispositivos móviles, ¿qué avances les parecen más interesantes?"
+            },
+            {
+                id: 3,
+                titulo: "Mundial de fútbol",
+                autor: "futbolero",
+                fecha: "2025-05-04",
+                categoria: "deportes",
+                contenido: "¿Quién creen que ganará el próximo mundial? Comparte tus predicciones y analicemos juntos los equipos favoritos."
+            }
+        ];
+
+        let respuestas = [
+            {
+                id: 1,
+                temaId: 1,
+                autor: "usuario1",
+                fecha: "2025-05-01",
+                contenido: "¡Excelente iniciativa! Espero que el foro sea un éxito."
+            },
+            {
+                id: 2,
+                temaId: 1,
+                autor: "usuario2",
+                fecha: "2025-05-02",
+                contenido: "Hola a todos, me alegra formar parte de esta comunidad."
+            },
+            {
+                id: 3,
+                temaId: 2,
+                autor: "usuario3",
+                fecha: "2025-05-03",
+                contenido: "Los avances en IA este año han sido impresionantes."
+            },
+            {
+                id: 4,
+                temaId: 3,
+                autor: "usuario4",
+                fecha: "2025-05-04",
+                contenido: "Mi apuesta es por Brasil en el próximo mundial."
+            },
+            {
+                id: 5,
+                temaId: 3,
+                autor: "usuario5",
+                fecha: "2025-05-05",
+                contenido: "Creo que España tiene un gran equipo este año."
+            }
+        ];
+
+        // Función para obtener parámetros de la URL
+        function obtenerParametrosURL() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                id: parseInt(params.get('id')) || 0
+            };
+        }
+
+        // Función para cargar el tema
+        function cargarTema() {
+            const params = obtenerParametrosURL();
+            const temaId = params.id;
+            
+            // Intentar cargar desde localStorage primero
+            const temasGuardados = localStorage.getItem('temas');
+            if (temasGuardados) {
+                temas = JSON.parse(temasGuardados);
+            }
+            
+            const tema = temas.find(t => t.id === temaId);
+            
+            if (!tema) {
+                window.location.href = 'foro.html';
+                return;
+            }
+            
+            document.title = `${tema.titulo} - Mi Foro`;
+            
+            const temaPrincipal = document.getElementById('temaPrincipal');
+            temaPrincipal.innerHTML = `
+                <div class="tema-header">
+                    <h2 class="tema-titulo">${tema.titulo}</h2>
+                    <div class="tema-meta">
+                        Por: ${tema.autor} | ${formatearFecha(tema.fecha)} | Categoría: ${tema.categoria}
+                    </div>
+                </div>
+                <div class="tema-contenido">
+                    ${tema.contenido}
+                </div>
+            `;
+            
+            cargarRespuestas(temaId);
+        }
+
+        // Función para cargar las respuestas
+        function cargarRespuestas(temaId) {
+            // Intentar cargar desde localStorage primero
+            const respuestasGuardadas = localStorage.getItem('respuestas');
+            if (respuestasGuardadas) {
+                respuestas = JSON.parse(respuestasGuardadas);
+            }
+            
+            const respuestasTema = respuestas.filter(r => r.temaId === temaId);
+            const listaRespuestas = document.getElementById('listaRespuestas');
+            
+            if (respuestasTema.length === 0) {
+                listaRespuestas.innerHTML = '<p>No hay respuestas todavía. ¡Sé el primero en responder!</p>';
+                return;
+            }
+            
+            // Ordenar respuestas de la más antigua a la más reciente
+            respuestasTema.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+            
+            listaRespuestas.innerHTML = '';
+            respuestasTema.forEach(respuesta => {
+                const respuestaElement = document.createElement('div');
+                respuestaElement.className = 'respuesta';
+                respuestaElement.innerHTML = `
+                    <div class="respuesta-header">
+                        <span class="respuesta-autor">${respuesta.autor}</span>
+                        <span class="respuesta-fecha">${formatearFecha(respuesta.fecha)}</span>
+                    </div>
+                    <div class="respuesta-contenido">
+                        ${respuesta.contenido}
+                    </div>
+                `;
+                listaRespuestas.appendChild(respuestaElement);
+            });
+        }
+
+        // Función para formatear fecha
+        function formatearFecha(fechaStr) {
+            const fecha = new Date(fechaStr);
+            return fecha.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Función para verificar sesión
+        function verificarSesion() {
+            const usuarioActual = localStorage.getItem('usuarioActual');
+            if (usuarioActual) {
+                const usuario = JSON.parse(usuarioActual);
+                document.getElementById('loginInfo').innerHTML = `
+                    Hola, ${usuario.nombre} | 
+                    <a href="#" id="cerrarSesion">Cerrar sesión</a>
+                `;
+                
+                // Manejar cierre de sesión
+                document.getElementById('cerrarSesion').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('usuarioActual');
+                    window.location.reload();
+                });
+                
+                // Habilitar el formulario de respuesta
+                document.getElementById('alertaLogin').style.display = 'none';
+                document.getElementById('formRespuesta').style.display = 'block';
+            } else {
+                // Mostrar alerta de login y ocultar formulario
+                document.getElementById('alertaLogin').style.display = 'block';
+                document.getElementById('formRespuesta').style.display = 'none';
+            }
+        }
+
+        // Función para manejar el envío de respuestas
+        function configurarFormularioRespuesta() {
+            const formRespuesta = document.getElementById('formRespuesta');
+            formRespuesta.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const usuarioActual = localStorage.getItem('usuarioActual');
+                if (!usuarioActual) {
+                    document.getElementById('alertaLogin').style.display = 'block';
+                    return;
+                }
+                
+                const usuario = JSON.parse(usuarioActual);
+                const contenido = document.getElementById('respuestaContenido').value;
+                const params = obtenerParametrosURL();
+                const temaId = params.id;
+                
+                // Crear nueva respuesta
+                const nuevaRespuesta = {
+                    id: respuestas.length + 1,
+                    temaId: temaId,
+                    autor: usuario.nombre,
+                    fecha: new Date().toISOString().split('T')[0],
+                    contenido: contenido
+                };
+                
+                // Guardar respuesta
+                respuestas.push(nuevaRespuesta);
+                localStorage.setItem('respuestas', JSON.stringify(respuestas));
+                
+                // Actualizar contador de respuestas en el tema
+                const temasGuardados = localStorage.getItem('temas');
+                if (temasGuardados) {
+                    let temasActualizados = JSON.parse(temasGuardados);
+                    const temaIndex = temasActualizados.findIndex(t => t.id === temaId);
+                    if (temaIndex !== -1) {
+                        temasActualizados[temaIndex].respuestas = (temasActualizados[temaIndex].respuestas || 0) + 1;
+                        localStorage.setItem('temas', JSON.stringify(temasActualizados));
+                    }
+                }
+                
+                // Recargar respuestas
+                cargarRespuestas(temaId);
+                
+                // Limpiar formulario
+                document.getElementById('respuestaContenido').value = '';
+            });
+        }
+
+        // Inicializar la página
+        window.onload = function() {
+            cargarTema();
+            verificarSesion();
+            configurarFormularioRespuesta();
+        };
+    </script>
+</body>
+</html>

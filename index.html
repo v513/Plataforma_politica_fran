@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,24 +16,25 @@
         <p>Lema: "Progreso con Disciplina, mantenimiento y Orden"</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="pages/principal/nosotros.html">Nosotros</a></li>
-            <li><a href="pages/principal/propuestas.html">Propuestas</a></li>
-            <li><a href="pages/principal/contacto.html">Contacto</a></li>
-            <li><a href="pages/principal/afiliate.html">Afíliate</a></li>
-            <li><a href="#plataforma">Plataforma</a></li>
-            <li><a href="#plan-gobierno">Plan de Gobierno</a></li>
-            <li><a href="pages/principal/redes_contenidos.html">Redes</a></li>
-            <li><a href="pages/principal/noticias.html">Noticias</a></li>
-            <li><a href="pages/foro/foro.html">foro</a></li>
-            <li><a href="pages/principal/eventos.html">eventos</a></li>      
-            <li><a href="pages/principal/donar.html">Donar</a></li>
-            <li><a href="pages/principal/preguntas_frequentes.html">preguntas frequentes</a></li>
-            <li><a href="pages/chat_ia/about_chat.html">chat bot</a></li>
-            <li><a href="pages/auth/cuenta.html">cuenta</a></li>
-        </ul>
-    </nav>
+<nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰ Menú</div>
+    <ul id="main-menu">
+        <li><a href="pages/principal/nosotros.html">Nosotros</a></li>
+        <li><a href="pages/principal/propuestas.html">Propuestas</a></li>
+        <li><a href="pages/principal/contacto.html">Contacto</a></li>
+        <li><a href="pages/principal/afiliate.html">Afíliate</a></li>
+        <li><a href="#plataforma">Plataforma</a></li>
+        <li><a href="#plan-gobierno">Plan de Gobierno</a></li>
+        <li><a href="pages/principal/redes_contenidos.html">Redes</a></li>
+        <li><a href="pages/principal/noticias.html">Noticias</a></li>
+        <li><a href="pages/foro/reglas_del_foro.html">Foro</a></li>
+        <li><a href="pages/principal/eventos.html">Eventos</a></li>
+        <li><a href="pages/principal/donar.html">Donar</a></li>
+        <li><a href="pages/principal/preguntas_frequentes.html">Preguntas Frecuentes</a></li>
+        <li><a href="pages/chat_ia/about_chat.html">Chat Bot</a></li>
+        <li><a href="pages/auth/cuenta.html">Cuenta</a></li>
+    </ul>
+</nav>
 
     <main>
         <!-- Slider/Carousel de Líderes Políticos -->
@@ -71,7 +73,8 @@
 
         <section id="bienvenida">
             <h2>¿Quiénes somos?</h2>
-            <p>Somos un movimiento que pone los huevos sobre la mesa. Basta de garantismo, basta de zurdaje. Queremos un país donde los honestos prosperen y los delincuentes se caguen de miedo.</p>
+            <p>Somos un movimiento que pone los huevos sobre la mesa. Basta de garantismo, basta de zurdaje. Queremos un
+                país donde los honestos prosperen y los delincuentes se caguen de miedo.</p>
         </section>
 
         <!-- Sección de Propuestas Destacadas -->
@@ -80,7 +83,8 @@
             <div class="propuestas-grid">
                 <div class="propuesta-card">
                     <h3>Seguridad Ciudadana</h3>
-                    <p>Mano dura contra el crimen. Más policías en las calles y penas más severas para los delincuentes.</p>
+                    <p>Mano dura contra el crimen. Más policías en las calles y penas más severas para los delincuentes.
+                    </p>
                     <button>Ver Detalles</button>
                 </div>
                 <div class="propuesta-card">
@@ -128,20 +132,24 @@
 
         <section id="plataforma">
             <h2>Plataforma Política</h2>
-            <p>Lee nuestra plataforma oficial para entender por qué somos la única opción seria y brutalmente necesaria.</p>
-            <a href="https://docs.google.com/document/d/1iix4cNDadv47kI_Sh_rJGT5YT-mzppSynKemLhgUCKA/edit?usp=sharing" target="_blank">
+            <p>Lee nuestra plataforma oficial para entender por qué somos la única opción seria y brutalmente necesaria.
+            </p>
+            <a href="https://docs.google.com/document/d/1iix4cNDadv47kI_Sh_rJGT5YT-mzppSynKemLhgUCKA/edit?usp=sharing"
+                target="_blank">
                 <button>Leer Plataforma</button>
             </a>
         </section>
 
         <section id="plan-gobierno">
             <h2>Plan de Gobierno en Video</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/fuBjhrgYkdM?si=57Pfl4QYH8sSnnWj" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fuBjhrgYkdM?si=57Pfl4QYH8sSnnWj"
+                frameborder="0" allowfullscreen></iframe>
         </section>
 
         <section id="afiliate">
             <h2>¡Afíliate a la Mano Dura!</h2>
-            <p>Forma parte de la única fuerza política con huevos para enfrentar a los corruptos, los criminales, y los zurdos llorones. Completá este formulario para unirte.</p>
+            <p>Forma parte de la única fuerza política con huevos para enfrentar a los corruptos, los criminales, y los
+                zurdos llorones. Completá este formulario para unirte.</p>
             <form>
                 <label for="nombre">Nombre Completo:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -200,6 +208,10 @@
     </footer>
 
     <script>
+        function toggleMenu() {
+            const menu = document.getElementById('main-menu');
+            menu.classList.toggle('show');
+        }
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.dot');
@@ -207,7 +219,7 @@
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
-            
+
             slides[index].classList.add('active');
             dots[index].classList.add('active');
         }
@@ -233,4 +245,5 @@
         }, 12000);
     </script>
 </body>
+
 </html>

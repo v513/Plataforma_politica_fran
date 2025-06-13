@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donar - La Gran Fuerza de la Mano Dura</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/donar.css">
+<link rel="shortcut icon" href="../../resources/icons/logo.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <img src="../../resources/icons/logo.png" alt="Logo Partido Mano Dura" style="height:100px;">
+    <h1>¡APOYA LA MANO DURA CON TU CONTRIBUCIÓN!</h1>
+    <p>Lema: "Progreso con Disciplina, Libertad con Orden"</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../../index.html">Inicio</a></li>
+      <li><a href="../../pages/principal/nosotros.html">Nosotros</a></li>
+      <li><a href="../../pages/principal/propuestas.html">Propuestas</a></li>
+      <li><a href="../../pages/principal/contacto.html">Contacto</a></li>
+      <li><a href="../../pages/principal/afiliate.html">Afíliate</a></li>
+      <li><a href="../../pages/principal/donar.html" class="active">Donar</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="donaciones">
+      <h2>¡FORTALECE LA MANO DURA!</h2>
+      <p class="introduccion">Cada peso que donas es un golpe más contra la delincuencia y la corrupción. Contribuye ahora para construir un país donde reine el orden y la disciplina.</p>
+      
+      <div class="metodos-donacion">
+        <div class="metodo">
+          <h3>Donación en Pesos Argentinos</h3>
+          <form id="form-pesos">
+            <label for="monto-pesos">Monto (ARS):</label>
+            <input type="number" id="monto-pesos" name="monto-pesos" min="100" step="100" required>
+            
+            <label for="email-pesos">Email para recibo:</label>
+            <input type="email" id="email-pesos" name="email-pesos" required>
+            
+            <button type="submit">Donar con Mercado Pago</button>
+          </form>
+        </div>
+        
+        <div class="metodo">
+          <h3>
+            <img src="../../resources/icons/Bitcoin.svg" alt="Bitcoin" class="bitcoin-logo">
+            Donación en Bitcoin
+          </h3>
+          <form id="form-bitcoin">
+            <label for="monto-btc">Monto (USD):</label>
+            <input type="number" id="monto-btc" name="monto-btc" min="10" step="5" required>
+            
+            <p class="direccion-btc">Dirección Bitcoin: <strong>ejemplo1ManoDuraARG9zZzYxYxYxYxYxYxYxYxYxY</strong></p>
+            <img src="../../resources/image/qr_code.png" alt="Código QR para donar Bitcoin" class="qr-code">
+            
+            <button type="button" onclick="copiarDireccion()">Copiar Dirección</button>
+          </form>
+        </div>
+        
+        <div class="metodo">
+          <h3>Donación Internacional (PayPal)</h3>
+          <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="business" value="donaciones@manodura.org">
+            <input type="hidden" name="currency_code" value="USD">
+            
+            <label for="monto-paypal">Monto (USD):</label>
+            <input type="number" id="monto-paypal" name="amount" min="5" step="5" required>
+            
+            <button type="submit">Donar con PayPal</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="testimonios">
+        <h3>Patriotas que ya apoyan:</h3>
+        <div class="testimonio">
+          <p>"Doné 50,000 pesos porque estoy harto de los delincuentes. ¡Quiero mano dura ya!"</p>
+          <p class="autor">- Juan P., Buenos Aires</p>
+        </div>
+        <div class="testimonio">
+          <p>"Contribuyo mensualmente con Bitcoin. Es la única forma de cambiar este país."</p>
+          <p class="autor">- María L., Córdoba</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 La Gran Fuerza de la Mano Dura. Todos los derechos reservados.</p>
+    <p class="disclaimer">Las donaciones políticas están reguladas por la ley 26.215. Todos los contribuyentes deben ser mayores de 16 años.</p>
+  </footer>
+  
+  <script>
+    function copiarDireccion() {
+      const direccion = "1ManoDuraARG9zZzYxYxYxYxYxYxYxYxYxY";
+      navigator.clipboard.writeText(direccion).then(() => {
+        alert("Dirección Bitcoin copiada al portapapeles");
+      });
+    }
+  </script>
+</body>
+</html>
